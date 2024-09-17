@@ -7,7 +7,7 @@ package com.mycompany.premierprojetsurgithub;
 
 /**
  *
- * @author danie
+ * @author antoine girel
  */
 public class PremierProjetSurGithub {
 
