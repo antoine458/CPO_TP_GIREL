@@ -6,7 +6,7 @@
 package com.mycompany.exo2;
 import java.util.Scanner;
 /**
- *@Role du programe 
+ *@Role du programe sommme 
  * @Date 17/09/2024
  * @author GIREL Antoine
  * @Groupe  TDC
