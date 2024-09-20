@@ -28,15 +28,25 @@ public class Calculateur {
                            4) divide
                            5) modulo""");
         operateur=sc.nextInt();
+        
+        while (operateur != 1 && operateur != 2 && operateur != 3 && operateur != 4 && operateur != 5) {
+        System.out.println("choisir une valeur valable");
+        operateur=sc.nextInt();
+        } 
         System.out.println("Saisir une premiere valeur ");
         operande1=sc.nextFloat();
         System.out.println("Saisir une deuxieme valeur ");
         operande2=sc.nextFloat();
-        switch (operateur) {
+        
+           switch (operateur) {
             case (1) :  result = operande1+operande2;
+            break;
             case (2) :  result = operande1-operande2;
+            break;
             case (3) :  result = operande1*operande2;
+            break;
             case (4) :  result = operande1/operande2;
+            break;
             case (5) :  result = operande1%operande2;
             default :   System.out.println("Selectionnez une valeur entre 1 et 5");
         }
