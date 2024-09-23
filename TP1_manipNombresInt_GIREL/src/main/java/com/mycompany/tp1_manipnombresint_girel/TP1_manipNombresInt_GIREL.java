@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 /**
  *@Role du programe ?
- * @Date 22/09/2024
+ * @Date 22/09/2024.
  * @author GIREL Antoine
  * @Groupe  TDC
  */
