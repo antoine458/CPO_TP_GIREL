@@ -19,7 +19,11 @@ public class TP1_guessMyNumber_GIREL {
         Scanner sc = new Scanner(System.in);
         int diff;
         int a = 0; 
-        System.out.println("choisir le niveau de difficulité");
+        System.out.println("""
+                           choisir le niveau de difficulité:
+                           1-Niveau Facile
+                           2-Niveau Moyen
+                           3-Niveau Difficile""");
         diff = sc.nextInt();
         switch(diff){
             case 1 -> a=100;
