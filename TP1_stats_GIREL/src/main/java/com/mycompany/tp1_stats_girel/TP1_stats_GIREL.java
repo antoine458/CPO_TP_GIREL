@@ -40,7 +40,10 @@ public class TP1_stats_GIREL {
          System.out.println(Tab[j]);
      }
     
-    
+    for (int k = 0; k != 5; k++){
+            double nbr = (Tab[k]*100)/m;
+            System.out.println("/n"+" Nombre : "+nbr);
+        }
     
     }
     }
