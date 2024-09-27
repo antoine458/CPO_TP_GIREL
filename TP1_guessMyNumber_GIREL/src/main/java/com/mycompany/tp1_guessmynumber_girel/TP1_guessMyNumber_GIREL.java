@@ -16,10 +16,20 @@ public class TP1_guessMyNumber_GIREL {
 
     public static void main(String[] args) {
         System.out.println("Hello World!");
+        Scanner sc = new Scanner(System.in);
+        int diff;
+        int a = 0; 
+        System.out.println("choisir le niveau de difficulité");
+        diff = sc.nextInt();
+        switch(diff){
+            case 1 -> a=100;
+            case 2 -> a=200;
+            case 3 -> a=300;
+            default -> System.out.println("la valeur doit appartenir a [1,3]");
+                    }
         Random generateurAleat = new Random();
         int n;
-        n=generateurAleat.nextInt(100);
-        Scanner sc = new Scanner(System.in);
+        n=generateurAleat.nextInt(a);       
          System.out.println("Entrer un nombre : ");
          int ValeurJoueur;
       ValeurJoueur = sc.nextInt();
