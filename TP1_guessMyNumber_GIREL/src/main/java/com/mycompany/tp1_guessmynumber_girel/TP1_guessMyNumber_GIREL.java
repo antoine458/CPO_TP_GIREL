@@ -9,7 +9,7 @@ import java.util.Random;
 /**
  *@Role du programe ?
  * @Date 22/09/2024
- * @author GIREL Antoine
+ * @author GIREL Antoine ..
  * @Groupe  TDC
  */
 public class TP1_guessMyNumber_GIREL {
