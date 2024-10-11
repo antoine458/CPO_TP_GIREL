@@ -28,11 +28,14 @@ uneBrasserie,boolean ouverte) {
  
 
 }
- public void decapsuler(boolean ouverte){
+ public boolean decapsuler(boolean ouverte){
      if (ouverte==false){
          ouverte=true;
+         return ouverte;
      } 
-     else{ System.out.println("La bouteille a deja etait siphonnée" ) ;
+     else{
+         System.out.println("La bouteille a deja etait siphonnée" ) ;
+         return false;
      }
  }
  @Override
