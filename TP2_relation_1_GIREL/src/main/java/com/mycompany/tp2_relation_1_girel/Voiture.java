@@ -10,6 +10,15 @@ package com.mycompany.tp2_relation_1_girel;
  */
 public class Voiture {
     int nbvoiture;
+    String modele;
+    String marque;
+    int puissance;
+    public Voiture(String modele,String marque,int puissance){
+        this.modele=modele;
+        this.marque=marque;
+        this.puissance=puissance;
+        
+    }
     public void voiture(int nb){
         this.nbvoiture=nb;
     }
@@ -18,7 +27,7 @@ public class Voiture {
     }
  @Override 
 public String toString () { 
-return "nb de conversions"+ nbvoiture; 
+return "modele : "+ modele +" : marque : "+marque+" : puissance : "+puissance+"Cv" ; 
 }  
     }
 
