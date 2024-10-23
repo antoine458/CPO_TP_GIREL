@@ -8,7 +8,7 @@ package com.mycompany.tp3_heroic_fantasy_girel;
  *
  * @author danie
  */
-public class Arme {
+public abstract  class Arme {
     String name;
     int level;
     public Arme(String name,int level){
@@ -22,4 +22,11 @@ public class Arme {
         public String getinfos(){
         return  "name : "+ name +" : level : "+ level ;
     }
+           public String getNom() {
+        return name;
+    }
+            public int getNiveauAttaque() {
+        return level;
+    }
+
 }
