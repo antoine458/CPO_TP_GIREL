@@ -31,7 +31,29 @@ public class Personne {
  @Override 
 public String toString () { 
 return "nom : "+ nom +" : prenom : "+prenom+" ";
-}  
 
+}  
+  public boolean ajoutVoiture(Voiture voiture_a_ajouter) {
+        if (voiture_a_ajouter.Proprietaire != null) {
+            return false; // La voiture a déjà un propriétaire
+        }
+        if (nbvoiture >= 3) {
+            return false; // Le tableau est plein
+        }
+        Lstvoiture[nbvoiture] = voiture_a_ajouter;
+        nbvoiture++;
+        voiture_a_ajouter.Proprietaire = this;
+        return true;
+    }
+    public String getListeVoitures() {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < nbvoiture; i++) {
+            sb.append(Lstvoiture[i]).append(", ");
+        }
+        return sb.length() > 0 ? sb.substring(0, sb.length() - 2) : "";
+    }
+  
 }
+
+
 
