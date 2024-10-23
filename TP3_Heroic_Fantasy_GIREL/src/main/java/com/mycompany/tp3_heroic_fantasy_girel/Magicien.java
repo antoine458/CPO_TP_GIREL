@@ -8,12 +8,12 @@ package com.mycompany.tp3_heroic_fantasy_girel;
  *
  * @author danie
  */
-public class Magicien {
+public class Magicien extends Personnage  {
      boolean confirme;
 
     // Constructeur
     public Magicien(String name, int health, boolean confirme) {
-        super(name, health); 
+        super(name,health); 
         this.confirme = confirme;
     }
 
