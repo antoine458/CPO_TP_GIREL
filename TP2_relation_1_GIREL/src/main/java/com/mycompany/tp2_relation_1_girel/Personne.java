@@ -10,6 +10,18 @@ package com.mycompany.tp2_relation_1_girel;
  */
 public class Personne {
     int nbPersonne;
+     int nbvoiture;
+    String nom;
+    String prenom;
+    Voiture[] Lstvoiture;
+   public Personne(String prenom,String nom){
+        this.prenom=prenom;
+        this.nom=nom;
+        this.Lstvoiture= new Voiture[3];
+        this.nbvoiture=0;
+        
+        
+   }   
     public void Personne(int nb){
         this.nbPersonne=nb;
     }
@@ -18,8 +30,8 @@ public class Personne {
     }
  @Override 
 public String toString () { 
-return "nb de conversions"+ nbPersonne; 
+return "nom : "+ nom +" : prenom : "+prenom+" ";
 }  
-    }
 
+}
 

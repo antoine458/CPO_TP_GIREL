@@ -13,10 +13,13 @@ public class Voiture {
     String modele;
     String marque;
     int puissance;
+    Personne Proprietaire; 
     public Voiture(String modele,String marque,int puissance){
         this.modele=modele;
         this.marque=marque;
         this.puissance=puissance;
+        this.Proprietaire=null;
+        this.nbvoiture=0;
         
     }
     public void voiture(int nb){
