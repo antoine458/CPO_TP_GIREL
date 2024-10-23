@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.tp3_heroic_fantasy_girel;
+package Armes;
 
 /**
  *
@@ -13,13 +13,18 @@ public abstract  class Arme {
     int level;
     public Arme(String name,int level){
         this.name=name;
-        this.level=0;
+        this.level=level;
+        if (level > 100 || level < 0) {
+            throw new IllegalArgumentException("Le niveau d'attaque doit être entre 0 et 100.");
+        }
     } 
        public void Arme(int nb){
         this.level=nb;
     
 }
-        public String getinfos(){
+       
+       @Override
+        public String toString(){
         return  "name : "+ name +" : level : "+ level ;
     }
            public String getNom() {
@@ -27,6 +32,8 @@ public abstract  class Arme {
     }
             public int getNiveauAttaque() {
         return level;
-    }
-
-}
+            }}
+            
+            
+            
+   
