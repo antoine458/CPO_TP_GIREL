@@ -4,6 +4,9 @@
  */
 
 package com.mycompany.tp3_heroic_fantasy_girel;
+import Personnage.Personnage;
+import Personnage.Magicien;
+import Personnage.Guerrier;
 import Armes.Epee;
 import Armes.Arme;
 import Armes.Baton;
@@ -27,6 +30,41 @@ public class TP3_Heroic_Fantasy_GIREL {
         BST.add(Riviere_Sanglante);
         for (int i=0;i<BST.size();i++){
             System.out.println(BST.get(i));
+        Magicien Gandalf = new Magicien ("Gandalf",65,true );
+        Magicien Garcimore = new Magicien ("Garcimore",42,false );
+        Guerrier conan = new Guerrier("conan",78,false);
+        Guerrier Lannister = new Guerrier("Lannister",45,true);
+        ArrayList<Personnage> Armée = new ArrayList<>();
+        Armée.add(conan);
+        Armée.add(Gandalf);
+        Armée.add(Garcimore);
+        Armée.add(Lannister);
+        for ( i=0;i<Armée.size();i++){
+            System.out.println(Armée.get(i));
         }
+        
+        }
+        
+      
+    
+        Guerrier perso = new Guerrier("conan",78,false);
+        
+        
+        perso.ajouterArme("Épée");
+        perso.ajouterArme("Arc");
+        perso.ajouterArme("Hache");
+        perso.ajouterArme("Lance");
+        perso.ajouterArme("Dague");
+        perso.ajouterArme("Masse");  
+        
+        System.out.println(perso);  
+
+      
+        perso.equiperArme("Arc");  
+        System.out.println(perso);  
+
+
+        perso.equiperArme("Fouet");  
+    }
 }
-}
+           

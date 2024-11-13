@@ -2,31 +2,30 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.tp3_heroic_fantasy_girel;
+package Personnage;
 
 /**
  *
  * @author danie
  */
-public class Magicien extends Personnage  {
-     boolean confirme;
+public class Guerrier extends Personnage{
+     boolean cheval;
 
     // Constructeur
-    public Magicien(String name, int health, boolean confirme) {
+    public Guerrier(String name, int health, boolean confirme) {
         super(name,health); 
-        this.confirme = confirme;
+        this.cheval = confirme;
     }
 
     // Setter pour la propriété confirme
     public void setConfirme(boolean confirme) {
-        this.confirme = confirme;
+        this.cheval = confirme;
     }
 
     // Redéfinition de la méthode toString pour afficher les infos du magicien
     @Override
     public String toString() {
-        return super.toString() + ", Confirmé: " + (confirme ? "Oui" : "Non");
+        return super.toString() + ", Confirmé: " + (cheval ? "Oui" : "Non");
     }
 }
-
 
