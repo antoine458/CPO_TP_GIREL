@@ -6,6 +6,7 @@ package Personnage;
 import java.util.ArrayList;
 import Armes.Arme;
 
+
 /**
  *
  * @author danie
@@ -15,12 +16,13 @@ public abstract class Personnage {
     int health;
     private ArrayList<Arme> armes;
     
-    private String armeEnMain; 
+    
+    private Arme ArmeMain; 
     public Personnage(String name,int health){
         this.health=health;
         this.name=name;
         this.armes = new ArrayList<>();  // Initialise l'inventaire d'armes
-        this.armeEnMain = null;          // Initialise l'arme en main à null
+        this.ArmeMain = null;          // Initialise l'arme en main à null
     }
         public String getname(){
             return name;
@@ -47,30 +49,42 @@ public abstract class Personnage {
         }
     }
 
-    // Getter pour obtenir l'arme en main
-    public String getArmeEnMain(Arme armeEnain) {
-        return armeEnMain;
-    }
-
-    // Méthode pour équiper une arme
-    public void equiperArme(Arme nomArme) {
-        if (armes.contains(nomArme)) {
-            this.armeEnMain = nomArme;
-            System.out.println("Le personnage est maintenant équipé de l'arme '" + nomArme + "'.");
-        } else {
-            System.out.println("L'arme '" + nomArme + "' n'a pas été trouvée dans l'inventaire.");
-        }
-    }
-
-    
    
-    public String Afficher (){
-        String inventaire = armes.isEmpty() ? "Aucune arme" : String.join(", ", armes);
-        String armeEnMainDescription = (armeEnMain != null) ? armeEnMain : "Aucune";
-        return "Inventaire d'armes : " + inventaire + "\nArme en main : " + armeEnMainDescription;
+    
+    
+    public Arme getArmeEnMain(Arme armeEnain) {
+        return ArmeMain;
     }
 
+ public void equiperArme(String nomArme) {
+        for (Arme arme : armes) {
+            if (armes.contains(arme)) {
+                ArmeMain = arme;
+                System.out.println("Arme trouvee et equipee : " + ArmeMain);
+                return;
+            }
+        
+        System.out.println("Arme " + nomArme + " non trouvée dans l'inventaire.");
+    }
+
+        
+
+  
+  
+  
+  
+   @Override
+   public String toString() {
+        String description = "Nom : " + Arme.getNom() + ", Niveau : " + ArmeMain.NiveauArmes();
+        if (ArmeMain != null) {
+            description += ", Arme en main : " + ArmeMain.getNom() + " (Puissance : " + ArmeMain.NiveauArmes() + ")";
+        } else {
+            description += ", Pas d'arme équipée.";
+        }
+        return description;
+ }}}
+   
     
-}
+
 
 
