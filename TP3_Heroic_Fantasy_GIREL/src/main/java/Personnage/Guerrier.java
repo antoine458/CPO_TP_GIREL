@@ -17,12 +17,12 @@ public class Guerrier extends Personnage{
         this.cheval = confirme;
     }
 
-    // Setter pour la propriété confirme
+  
     public void setConfirme(boolean confirme) {
         this.cheval = confirme;
     }
 
-    // Redéfinition de la méthode toString pour afficher les infos du magicien
+   
     @Override
     public String toString() {
         return super.toString() + ", Confirmé: " + (cheval ? "Oui" : "Non");

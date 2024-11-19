@@ -4,32 +4,27 @@
  */
 package Armes;
 
-import Armes.Arme;
-
 /**
  *
  * @author danie
  */
-public class Epee extends Arme {
-     int finesse;
-
-    
-    public Epee(String name, int level, int finesse) {
-        super(name, level);
-        if (finesse > 100 || finesse < 0) {
-            throw new IllegalArgumentException("La finesse doit être entre 0 et 100.");
+public class Epee extends Arme{
+    private int finesse;
+    public Epee(String nom,int niveau, int finesse){
+        super (nom, niveau);
+        if (finesse > 100){
+            throw new IllegalArgumentException("La finesse de l'arme est supérieure à 100");
         }
         this.finesse = finesse;
     }
-
-    
-    public int getFinesse() {
+    public int getFinesse(){
         return finesse;
     }
-
-    
+    public String getTypeArmes(){
+        return "Epee";
+    }
     @Override
-    public String toString() {
-        return super.toString() + ", Finesse: " + finesse;
+    public String toString(){
+        return "L'arme s'apelle : "+nom+" et son niveau d'attaque est de : "+niveau+" et sa finesse est de "+finesse;
     }
 }

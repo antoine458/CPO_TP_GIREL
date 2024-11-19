@@ -9,27 +9,24 @@ package Armes;
  * @author danie
  */
 
-    public class Baton extends Arme {
-     int age;
-
-    
-    public Baton(String name, int level, int finesse) {
-        super(name, level);
-        if (finesse > 100 || finesse < 0) {
-            throw new IllegalArgumentException("L'age doit être entre 0 et 100.");
+ 
+public class Baton extends Arme {
+    public int age;
+    public Baton(String nom, int niveau, int age){
+        super(nom, niveau);
+        if (age >100){
+            throw new IllegalArgumentException("L'age de l'arme est supérieur à 100");
         }
-        this.age = finesse;
+        this.age = age;
     }
-
-    
-    public int getFinesse() {
+    public int getAgeBaton(){
         return age;
     }
-
-    
+    public String getTypeArmes(){
+        return "Baton";
+    }
     @Override
-    public String toString() {
-        return super.toString() + ", Age : " + age;
+    public String toString(){
+        return "L'arme s'apelle : "+nom+" et son niveau d'attaque est de : "+niveau+" et son age est de "+age +"ans";
     }
 }
-

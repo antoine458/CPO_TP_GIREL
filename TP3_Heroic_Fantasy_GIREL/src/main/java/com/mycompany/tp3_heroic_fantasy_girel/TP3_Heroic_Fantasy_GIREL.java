@@ -85,4 +85,6 @@ public class TP3_Heroic_Fantasy_GIREL {
         System.out.println("Le magicien est-il vivant ? " + gandalf.estVivant());
         System.out.println("Le guerrier est-il vivant ? " + conan.estVivant());
     }
+
+
 }

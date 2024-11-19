@@ -3,37 +3,34 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Armes;
-
-/**
+/**NiveauArmes
  *
- * @author danie
+ * 
  */
-public abstract  class Arme {
-    String name;
-    int level;
-    public Arme(String name,int level){
-        this.name=name;
-        this.level=level;
-        if (level > 100 || level < 0) {
-            throw new IllegalArgumentException("Le niveau d'attaque doit être entre 0 et 100.");
+public abstract class Arme{
+    String nom;
+    int niveau;
+    public Arme(String nom, int niveau){
+        if (niveau>100){
+           throw new IllegalArgumentException("Niveau de l'arme superieure à 100");
         }
-    } 
-       public void Arme(int nb){
-        this.level=nb;
+        this.nom=nom;
+        this.niveau=niveau;
+    }
+    public int NiveauArmes(){
+        return niveau;
+    }
+    public String NomArmes(){
+        return nom;
+    }
+        
+    @Override
+    public String toString(){
+        return "L'arme s'apelle : "+nom+" et son niveau d'attaque est de : "+niveau;
+    }
+    
     
 }
-       
-       @Override
-        public String toString(){
-        return  "name : "+ name +" : level : "+ level ;
-    }
-           public String getNom() {
-        return name;
-    }
-            public int getNiveauAttaque() {
-        return level;
-            }}
-            
             
             
    

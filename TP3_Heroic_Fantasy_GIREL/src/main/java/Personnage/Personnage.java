@@ -3,87 +3,309 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Personnage;
-import java.util.ArrayList;
 import Armes.Arme;
+import java.util.ArrayList;
+import Armes.Baton;
+import Armes.Epee;
+import com.mycompany.tp3_heroic_fantasy_girel.etreVivant;
+
 
 
 /**
  *
  * @author danie
  */
-public abstract class Personnage {
-    String name;
-    int health;
-    private ArrayList<Arme> armes;
-    
-    
-    private Arme ArmeMain; 
-    public Personnage(String name,int health){
-        this.health=health;
-        this.name=name;
-        this.armes = new ArrayList<>();  // Initialise l'inventaire d'armes
-        this.ArmeMain = null;          // Initialise l'arme en main à null
+public abstract class Personnage implements etreVivant {
+
+    private final String nom;
+    int NiveauVie;
+    public final ArrayList<Arme> inventaire;
+    Arme ArmesMain;
+    private static int nombresPersonnages = 0;
+    static int nombresGuerriers = 0;
+    static int nombresMagiciens;
+
+    public Personnage(String nom, int NiveauVie) {
+        this.nom = nom;
+        this.NiveauVie = NiveauVie;
+        this.inventaire = new ArrayList<>();
+        this.ArmesMain = null;
+        nombresPersonnages++;
     }
-        public String getname(){
-            return name;
-                   
-        }
-        public int gethealth(){
-            return health;
-            
-        }
+
     @Override
-        public String toString(){
-    return "name : "+ name +" : vie : "+ health ;
+    public void seFatiguer() {
+        NiveauVie -= 10;
     }
-     
-    
 
-    // Méthode pour ajouter une arme
-    public void ajouterArme(Arme arme) {
-        if (armes.size() < 5) {
-            armes.add(arme);
-            System.out.println("Arme '" + arme + "' ajoutée à l'inventaire.");
+    @Override
+    public boolean estVivant() {
+        return NiveauVie > 0;
+    }
+
+    @Override
+    public void estAttaque(int points) {
+        NiveauVie -= points;
+    }
+
+    @Override
+    public void finalize() {
+        nombresPersonnages--;
+    }
+
+    public void attaque(Personnage autre) {
+    }
+
+    public static int getNombresPersonnages() {
+        return nombresPersonnages;
+    }
+
+    public static int getNombresGuerriers() {
+        return nombresGuerriers;
+    }
+
+    public static int getNombresMagiciens() {
+        return nombresMagiciens;
+    }
+
+    public int NiveauViePersonnage() {
+        return NiveauVie;
+    }
+
+    public String NomPersonnage() {
+        return nom;
+    }
+
+    public void ajouterArme(Arme Armes) {
+        if (inventaire.size() < 5) {
+            inventaire.add(Armes);
+            System.out.println(Armes.NomArmes() + " ajoutee a l'inventaire de " + NomPersonnage());
+
         } else {
-            System.out.println("Impossible d'ajouter l'arme : inventaire plein (5 armes maximum).");
+            System.out.println("Inventaire plein, impossible d'ajouter l'arme.");
         }
     }
 
-   
-    
-    
-    public Arme getArmeEnMain(Arme armeEnain) {
-        return ArmeMain;
-    }
-
- public void equiperArme(String nomArme) {
-        for (Arme arme : armes) {
-            if (armes.contains(arme)) {
-                ArmeMain = arme;
-                System.out.println("Arme trouvee et equipee : " + ArmeMain);
+    public void equiperArme(Arme nomArme) {
+        for (Arme arme : inventaire) {
+            if (arme == nomArme) {
+                ArmesMain = arme;
+                System.out.println("Arme trouvee et equipee : " + ArmesMain);
                 return;
             }
-        
-        System.out.println("Arme " + nomArme + " non trouvée dans l'inventaire.");
+        }
+        System.out.println("Arme " + nomArme + " non trouvee dans l'inventaire.");
     }
 
-        
+    public Arme getArmesMain() {
+        return ArmesMain;
+    }
 
-  
-  
-  
-  
-   @Override
-   public String toString() {
-        String description = "Nom : " + Arme.getNom() + ", Niveau : " + ArmeMain.NiveauArmes();
-        if (ArmeMain != null) {
-            description += ", Arme en main : " + ArmeMain.getNom() + " (Puissance : " + ArmeMain.NiveauArmes() + ")";
+    @Override
+    public String toString() {
+        String description = "Nom : " + nom + ", Niveau : " + ArmesMain.NiveauArmes();
+        if (ArmesMain != null) {
+            description += ", Arme en main : " + ArmesMain.NomArmes() + " (Puissance : " + ArmesMain.NiveauArmes() + ")";
         } else {
             description += ", Pas d'arme équipée.";
         }
         return description;
- }}}
+    }
+public class Personnage {
+    private String nom;
+    private int vie;
+    private Arme ArmesMain;
+
+    public Personnage(String nom, int vie) {
+        this.nom = nom;
+        this.vie = vie;
+        this.ArmesMain = null; // Arme par défaut : aucune
+    }
+
+    public void EquipArme(Arme arme) {
+        if (arme != null) {
+            this.ArmesMain = arme;
+        }
+    }
+
+    @Override
+    public String toString() {
+        String armeEnMain = (this.ArmesMain != null) 
+            ? "Niveau: " + this.ArmesMain.NiveauArmes() 
+            : "Pas d'arme équipée";
+
+        return "Nom: " + this.nom + ", Niveau de vie: " + this.vie + ", Arme: " + armeEnMain;
+    }
+}
+public class Personnage {
+    private String nom;
+    private int vie;
+    private Arme ArmesMain;
+
+    public Personnage(String nom, int vie) {
+        this.nom = nom;
+        this.vie = vie;
+        this.ArmesMain = null; // Arme par défaut : aucune
+    }
+
+    public void EquipArme(Arme arme) {
+        if (arme != null) {
+            this.ArmesMain = arme;
+        }
+    }
+
+    @Override
+    public String toString() {
+        String armeEnMain = (this.ArmesMain != null) 
+            ? "Niveau: " + this.ArmesMain.NiveauArmes() 
+            : "Pas d'arme équipée";
+
+        return "Nom: " + this.nom + ", Niveau de vie: " + this.vie + ", Arme: " + armeEnMain;
+    }
+}
+public class Personnage {
+    private String nom;
+    private int vie;
+    private Arme ArmesMain;
+
+    public Personnage(String nom, int vie) {
+        this.nom = nom;
+        this.vie = vie;
+        this.ArmesMain = null; // Arme par défaut : aucune
+    }
+
+    public void EquipArme(Arme arme) {
+        if (arme != null) {
+            this.ArmesMain = arme;
+        }
+    }
+
+    @Override
+    public String toString() {
+        String armeEnMain = (this.ArmesMain != null) 
+            ? "Niveau: " + this.ArmesMain.NiveauArmes() 
+            : "Pas d'arme équipée";
+
+        return "Nom: " + this.nom + ", Niveau de vie: " + this.vie + ", Arme: " + armeEnMain;
+    }
+}
+        public class Personnage {
+    private String nom;
+    private int vie;
+    private Arme ArmesMain;
+
+    public Personnage(String nom, int vie) {
+        this.nom = nom;
+        this.vie = vie;
+        this.ArmesMain = null; // Arme par défaut : aucune
+    }
+
+    public void EquipArme(Arme arme) {
+        if (arme != null) {
+            this.ArmesMain = null;
+        }
+    }
+
+    @Override
+    public String toString() {
+        String armeEnMain = (this.ArmesMain != null) 
+            ? "Niveau: " + this.ArmesMain.NiveauArmes() 
+            : "Pas d'arme équipée";
+
+        return "Nom: " + this.nom + ", Niveau de vie: " + this.vie + ", Arme: " + armeEnMain;
+    }
+    public class Personnage {
+    private String nom;
+    private int vie;
+    private Arme ArmesMain;
+
+    public Personnage(String nom, int vie) {
+        this.nom = nom;
+        this.vie = vie;
+        this.ArmesMain = null; // Arme par défaut : aucune
+    }
+
+    public void EquipArme(Arme arme) {
+        if (arme != null) {
+            this.ArmesMain = arme;
+        }
+    }
+
+    @Override
+    public String toString() {
+        String armeEnMain = (this.ArmesMain != null) 
+            ? "Niveau: " + this.ArmesMain.NiveauArmes() 
+            : "Pas d'arme équipée";
+
+        return "Nom: " + this.nom + ", Niveau de vie: " + this.vie + ", Arme: " + armeEnMain;
+    }
+public class Personnage {
+    private String nom;
+    private int vie;
+    private Arme ArmesMain;
+
+    public Personnage(String nom, int vie) {
+        this.nom = nom;
+        this.vie = vie;
+        this.ArmesMain = baton; // Arme par défaut : aucune
+    }
+
+    public void EquipArme(Arme arme) {
+        if (arme != null) {
+            this.ArmesMain = arme;
+        }
+    }
+
+    @Override
+    public String toString() {
+        String armeEnMain = (this.ArmesMain != null) 
+            ? "Niveau: " + this.ArmesMain.NiveauArmes() 
+            : "Pas d'arme équipée";
+
+        return "Nom: " + this.nom + ", Niveau de vie: " + this.vie + ", Arme: " + armeEnMain;
+    }
+            
+}
+
+    //public void attaquer(Personnage autre) {
+       // int degats = 0;
+       // if (ArmesMain != null) {
+            
+           // if (this instanceof Magicien && ArmesMain instanceof Baton) {
+              //  Baton baton = (Baton) ArmesMain;
+               // degats = baton.NiveauArmes() * baton.getAgeBaton();  
+           // }
+           // else if (this instanceof Guerrier && ArmesMain instanceof Epee) {
+              //  Epee epee = (Epee) ArmesMain;
+            //    degats = epee.NiveauArmes() * epee.getFinesse();  
+           // }
+
+            
+            //this.seFatiguer();
+
+           
+            //if ((this instanceof Magicien && ((Magicien) this).MagicienConfirme())
+            //       || (this instanceof Guerrier && ((Guerrier) this).GuerrierCheval())) {
+            //    degats /= 2;  
+            //}
+
+            
+           // autre.estAttaque(degats);
+           // System.out.println(this.nom + " inflige " + degats + " degats a " + autre.nom);
+        //} else {
+        //    System.out.println(this.nom + " n'a pas d'arme equipee et ne peut pas attaquer !");
+
+    
+
    
+
+        
+        
+     
+    
+
+    
+
     
 
 
