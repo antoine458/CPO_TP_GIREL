@@ -16,55 +16,73 @@ import java.util.ArrayList;
  * @author danie
  */
 public class TP3_Heroic_Fantasy_GIREL {
-
     public static void main(String[] args) {
-        System.out.println("Hello World!");
-        Epee Riviere_Sanglante= new Epee ("Riviere Sanglante",99,60);
-        Epee Faux_Mortuaire = new Epee("Faux_Mortuaire",80,60);
-        Baton Lame_deleonora= new Baton("Lame_deleonora",85,10);
-        Baton lame_blasphématoire= new Baton("lame_blasphématoire",60,22);
-        ArrayList<Arme> BST = new ArrayList<>();
-        BST.add(Lame_deleonora);
-        BST.add(Faux_Mortuaire);
-        BST.add(lame_blasphématoire);
-        BST.add(Riviere_Sanglante);
-        for (int i=0;i<BST.size();i++){
-            System.out.println(BST.get(i));
-        Magicien Gandalf = new Magicien ("Gandalf",65,true );
-        Magicien Garcimore = new Magicien ("Garcimore",42,false );
-        Guerrier conan = new Guerrier("conan",78,false);
-        Guerrier Lannister = new Guerrier("Lannister",45,true);
-        ArrayList<Personnage> Armée = new ArrayList<>();
-        Armée.add(conan);
-        Armée.add(Gandalf);
-        Armée.add(Garcimore);
-        Armée.add(Lannister);
-        for ( i=0;i<Armée.size();i++){
-            System.out.println(Armée.get(i));
+        ArrayList<Arme> listeArmes = new ArrayList<>();
+        Epee excalibur = new Epee("Excalibur", 50, 12);
+        Epee durandal = new Epee("Durandal", 43, 12);
+        Epee fauxmortuaire = new Epee("Faux Mortuaire", 65, 42);
+        Baton chene = new Baton("Chene", 70, 41);
+        Baton charme = new Baton("Charme", 62, 41);
+        Baton lamedelenora = new Baton("Lame de l enora", 17, 58);
+        System.out.println(excalibur);
+        listeArmes.add(excalibur);
+        listeArmes.add(durandal);
+        listeArmes.add(fauxmortuaire);
+        listeArmes.add(chene);
+        listeArmes.add(charme);
+        listeArmes.add(lamedelenora);
+        
+        for (int i = 0; i < listeArmes.size(); i++) {
+            System.out.println(listeArmes.get(i));
         }
-        
+        Magicien gandalf = new Magicien("Gandalf", 50, true);
+        Magicien garcimore = new Magicien("Garcimore", 50, false);
+        Guerrier conan = new Guerrier("Conan", 100, false);
+        Guerrier lannister = new Guerrier("Lannister", 100, true);
+        ArrayList<Personnage> listePersonnages = new ArrayList<>();
+        listePersonnages.add(gandalf);
+        listePersonnages.add(garcimore);
+        listePersonnages.add(conan);
+        listePersonnages.add(lannister);
+        System.out.println("La liste contient " + listePersonnages.size() + " elements");
+        for (int i = 0; i < listePersonnages.size(); i++) {
+            System.out.println(listePersonnages.get(i));
         }
+        conan.ajouterArme(excalibur);
+        conan.ajouterArme(durandal);
+        conan.ajouterArme(lamedelenora);
+        gandalf.ajouterArme(chene);
+        gandalf.ajouterArme(charme);
+        gandalf.ajouterArme(fauxmortuaire);
+        conan.equiperArme(excalibur);
+        conan.equiperArme(durandal);
         
-      
-    
-        Guerrier perso = new Guerrier("conan",78,false);
-        
-        
-        perso.ajouterArme("Épée");
-        perso.ajouterArme("Arc");
-        perso.ajouterArme("Hache");
-        perso.ajouterArme("Lance");
-        perso.ajouterArme("Dague");
-        perso.ajouterArme("Masse");  
-        
-        System.out.println(perso);  
 
-      
-        perso.equiperArme("Arc");  
-        System.out.println(perso);  
-
-
-        perso.equiperArme("Fouet");  
+        
+        System.out.println("Nombres de personnages : " + Personnage.getNombresPersonnages());
+        System.out.println("Nombres de guerriers : " + Personnage.getNombresGuerriers());
+        System.out.println("Nombres de magiciens : " + Personnage.getNombresMagiciens());
+        System.out.println(conan);
+        conan.seFatiguer();
+        System.out.println(conan);
+        if (conan.estVivant()) {
+            System.out.println("Le guerrier est toujours vivant.");
+        } else {
+            System.out.println("Le guerrier n'est plus vivant.");
+        }
+        conan.getArmesMain();
+        
+        System.out.println(gandalf);
+        System.out.println(conan.getArmesMain().NiveauArmes());
+        //gandalf.attaquer(conan);
+        System.out.println("Apres l'attaque du magicien :");
+        System.out.println(gandalf);
+        System.out.println(conan);
+        //conan.attaquer(gandalf);
+        System.out.println("Apres l'attaque du guerrier :");
+        System.out.println(gandalf);
+        System.out.println(conan);
+        System.out.println("Le magicien est-il vivant ? " + gandalf.estVivant());
+        System.out.println("Le guerrier est-il vivant ? " + conan.estVivant());
     }
 }
-           
